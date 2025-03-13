@@ -119,3 +119,18 @@ Decidí no utilizar TanStack Query en este proyecto porque no tengo experiencia 
 - Memoización para evitar refetching innecesario
 
 En un entorno real, con tiempo para familiarizarme con la herramienta, sería una adición valiosa al proyecto.
+
+## Cuestionario Teórico
+
+A continuación estan las respuestas del cuestionario:
+
+1. Verdadero
+2. Falso
+3. Falso
+4. Verdadero
+5. Falso
+6. B
+7. B
+8. B
+9. B
+10. A
