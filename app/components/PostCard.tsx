@@ -29,11 +29,7 @@ export default function PostCard({ post }: PostCardProps) {
       <CardContent className="pb-2">
         <p className="text-muted-foreground line-clamp-3">{post.body}</p>
       </CardContent>
-      <CardFooter className="flex justify-between items-center">
-        <div className="flex items-center gap-1 text-sm text-muted-foreground">
-          <MessageSquare size={14} />
-          <span>Comentarios</span>
-        </div>
+      <CardFooter className="flex justify-end items-center">
         <Button
           variant="outline"
           size="sm"

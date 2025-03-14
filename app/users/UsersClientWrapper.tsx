@@ -1,33 +1,51 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { User } from "../lib/types";
 import UserFilter from "../components/UserFilter";
 import UserCard from "../components/UserCard";
+import { useUsers } from "../lib/hooks";
+import { Card } from "@/components/ui/card";
+import LoadingSpinner from "../components/LoadingSpinner";
 
-interface UsersClientWrapperProps {
-  initialUsers: User[];
-}
+export default function UsersClientWrapper() {
+  const { data: users = [], isLoading, error } = useUsers();
+  const [filteredUsers, setFilteredUsers] = useState<User[]>(users);
 
-export default function UsersClientWrapper({
-  initialUsers,
-}: UsersClientWrapperProps) {
-  const [filteredUsers, setFilteredUsers] = useState<User[]>(initialUsers);
+  useEffect(() => {
+    setFilteredUsers(users);
+  }, [users]);
 
   const handleFilterChange = (query: string) => {
     if (!query.trim()) {
-      setFilteredUsers(initialUsers);
+      setFilteredUsers(users);
       return;
     }
+
     const lowercaseQuery = query.toLowerCase();
-    const filtered = initialUsers.filter(
+    const filtered = users.filter(
       (user) =>
         user.name.toLowerCase().includes(lowercaseQuery) ||
         user.username.toLowerCase().includes(lowercaseQuery) ||
         user.email.toLowerCase().includes(lowercaseQuery)
     );
+
     setFilteredUsers(filtered);
   };
+
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (error) {
+    return (
+      <Card className="p-6 bg-red-50 border-red-200">
+        <p className="text-red-500">
+          Error al cargar usuarios: {error.message}
+        </p>
+      </Card>
+    );
+  }
 
   return (
     <>

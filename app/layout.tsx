@@ -2,6 +2,7 @@ import { Home, Send, Users } from "lucide-react";
 import type { Metadata } from "next";
 import Link from "next/link";
 import "./globals.css";
+import QueryProvider from "./providers/QueryProvider";
 
 export const metadata: Metadata = {
   title: "JSONPlaceholder App",
@@ -56,10 +57,15 @@ export default function RootLayout({
             </nav>
           </div>
         </header>
-        <main className="w-full p-8 md:p-12 lg:p-20 xl:p-28">{children}</main>
-        <footer className="bg-gray-100  p-4 w-full">
+        <QueryProvider>
+          <main className="w-full px-8 py-8 md:px-12 md:py-10 lg:px-20 lg:py-12 xl:px-28">
+            {children}
+          </main>
+        </QueryProvider>
+        <footer className="bg-gray-100 p-4 w-full">
           <div className="text-center">
             <p>© 2025 JSONPlaceholder App - Creado con Next.js 14</p>
+            <p>Samuel Satizabal</p>
           </div>
         </footer>
       </body>

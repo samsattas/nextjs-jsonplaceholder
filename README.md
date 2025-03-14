@@ -41,7 +41,7 @@ Esta aplicación web está construida con Next.js 14, React 18 y TypeScript, y c
 1. Clona este repositorio:
 
 ```bash
-git clone https://github.com/
+git clone https://github.com/samsattas/nextjs-jsonplaceholder
 cd nextjs-jsonplaceholder
 ```
 
@@ -87,6 +87,9 @@ yarn dev
   - **posts/:id/comments/**: Ruta secundaria para comentarios
   - **components/**: Componentes para usar en el desarrollo de la aplicación
   - **lib/**: Configuración de tipos y de API para traer la información
+  - **providers/**: Proveedores de contexto para la aplicación
+
+> Las carpetas **lib/** y **components/** por fuera de la carpeta **app/** son usadas para los componentes y configuracion de **ShadCN**
 
 ### Manejo del Estado
 
@@ -109,16 +112,9 @@ Utilicé Tailwind CSS por su flexibilidad y agilidad para configurar los estilos
 3. **Estructura de componentes**: Separación de lógica para evitar renderizados o fetch innecesarios
 4. **Manejo de errores**: Implementación de manejo de errores para evitar cualquier colapso y dar claridad a cualquier problema que pueda estar pasando
 
-## Sobre la Omisión de TanStack Query
+## Sobre la integración de TanStack Query
 
-Decidí no utilizar TanStack Query en este proyecto porque no tengo experiencia previa con esta biblioteca. Sin embargo, comprendo sus beneficios:
-
-- Gestión automática de caché
-- Revalidación de datos
-- Manejo del estado de carga/error
-- Memoización para evitar refetching innecesario
-
-En un entorno real, con tiempo para familiarizarme con la herramienta, sería una adición valiosa al proyecto.
+Decidí investigar esta herramienta para ver que ofrecia, que ventajas tenía y como se podía integrar, al ver su funcionamiento me di cuenta de similitud entre TanStack y Apollo, una herramienta que he usado mucho en un proyecto con GraphQl que me permite hacer la peticion y que, adicionalmente, ofrece información y funcionalidades que usualmente se necesitan en un desarrollo con integración de APIs, como puede ser el saber si esta cargando, si hubo un error, que hacer cuando se complete la petición, la data como tal que me trae, entre muchas otras.
 
 ## Cuestionario Teórico
 
